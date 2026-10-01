@@ -1,0 +1,25 @@
+۱۱_ موثرترین طریق برای محاسبه جایگشت تابع p(n, k) فرمول زیر است:
+
+P(n,k)=n(n-1)(n-2)... (n - k + 2)(n - k + 1)
+یعنی حاصل ضرب عدد صحیح از 1 تا 1+n-k . با استفاده از این رابطه تابع ( )perm مثال ۵_۱۰ را بازنویسی و آزمایش کنید
+
+پاسخ:
+#include <iostream>
+using namespace std;
+
+int perm(int n, int k)
+{
+    int p = 1;
+
+    for (int i = n; i >= n-k+1; i--)
+        p *= i;
+
+    return p;
+}
+
+int main()
+{
+    cout << perm(5, 3);
+
+    return 0;
+}
